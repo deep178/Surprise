@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Cutie Panda</title>
+    <style>
+        body {
+            background-color: #ffe6f2;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: #d63384;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        img {
+            width: 70%;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        p {
+            font-size: 1.5em;
+        }
+        .button-container {
+            margin-top: 20px;
+            position: relative;
+        }
+        .proposal-btn {
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.3s;
+            position: relative;
+        }
+        .proposal-btn:hover {
+            background-color: #ff3385;
+        }
+        #no-btn {
+            position: absolute;
+        }
+        @keyframes roseShower {
+            from { transform: translateY(-100vh); }
+            to { transform: translateY(100vh); }
+        }
+        .rose {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            animation: roseShower 3s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>For My Cutie Panda</h1>
+        <img src="https://i.postimg.cc/B6jtHT1y/DIP00501.jpg" alt="Memorable Moment">
+        <p>I accepted to be yours, Now... can you be mine?</p>
+        <div class="button-container">
+            <button class="proposal-btn" onclick="acceptProposal()">YES, Forever!</button>
+            <button class="proposal-btn" id="no-btn" onclick="moveNoButton()">No</button>
+        </div>
+        <div id="rose-container"></div>
+    </div>
+    
+    <script>
+        function acceptProposal() {
+            document.body.innerHTML += '<h2 style="color: #ff1493;">Yay! I knew you would say YES! 💖</h2>';
+            for (let i = 0; i < 30; i++) {
+                let rose = document.createElement("img");
+                rose.src = "https://i.postimg.cc/Z5qG3P9m/rose.png";
+                rose.classList.add("rose");
+                rose.style.left = Math.random() * window.innerWidth + "px";
+                rose.style.top = "-50px";
+                rose.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.getElementById("rose-container").appendChild(rose);
+            }
+        }
+        
+        function moveNoButton() {
+            let btn = document.getElementById("no-btn");
+            btn.style.top = Math.random() * window.innerHeight + "px";
+            btn.style.left = Math.random() * window.innerWidth + "px";
+        }
+    </script>
+</body>
+</html>
